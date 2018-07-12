@@ -7,10 +7,7 @@ import acn.i2o.entity.Insurance;
 import acn.i2o.entity.Police;
 import acn.i2o.entity.Repairshop;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,7 @@ public class SentinelResource {
     @Autowired
     SentinelService sentinelService;
 
+    @CrossOrigin
     @RequestMapping(
             value = "/create/carseller",
             method = RequestMethod.POST,
@@ -31,6 +29,7 @@ public class SentinelResource {
         return sentinelService.put(record);
     }
 
+    @CrossOrigin
     @RequestMapping(
             value = "/create/insurance",
             method = RequestMethod.POST,
@@ -40,6 +39,7 @@ public class SentinelResource {
         return sentinelService.put(record);
     }
 
+    @CrossOrigin
     @RequestMapping(
             value = "/create/police",
             method = RequestMethod.POST,
@@ -49,6 +49,7 @@ public class SentinelResource {
         return sentinelService.put(record);
     }
 
+    @CrossOrigin
     @RequestMapping(
             value = "/create/repairshop",
             method = RequestMethod.POST,
@@ -58,6 +59,7 @@ public class SentinelResource {
         return sentinelService.put(record);
     }
 
+    @CrossOrigin
     @RequestMapping(
             value = "/awtomatic-records",
             method = RequestMethod.GET,
