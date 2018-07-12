@@ -6,7 +6,7 @@ public class Repairshop {
 
     private String vin;
 
-    private String damageDescription;
+    private String desc;
 
     private String damageDate;
 
@@ -26,12 +26,12 @@ public class Repairshop {
         this.vin = vin;
     }
 
-    public String getDamageDescription() {
-        return damageDescription;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDamageDescription(String damageDescription) {
-        this.damageDescription = damageDescription;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getDamageDate() {
@@ -80,7 +80,7 @@ public class Repairshop {
         if (o == null || getClass() != o.getClass()) return false;
         Repairshop that = (Repairshop) o;
         return Objects.equals(vin, that.vin) &&
-                Objects.equals(damageDescription, that.damageDescription) &&
+                Objects.equals(desc, that.desc) &&
                 Objects.equals(damageDate, that.damageDate) &&
                 Objects.equals(damageLocation, that.damageLocation) &&
                 Objects.equals(repairShop, that.repairShop) &&
@@ -91,6 +91,6 @@ public class Repairshop {
     @Override
     public int hashCode() {
 
-        return Objects.hash(vin, damageDescription, damageDate, damageLocation, repairShop, shopLocation, repairDate);
+        return Objects.hash(vin, desc, damageDate, damageLocation, repairShop, shopLocation, repairDate);
     }
 }

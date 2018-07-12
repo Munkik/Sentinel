@@ -24,6 +24,10 @@ public class CarSeller {
 
     private String mileage;
 
+    private String seller;
+
+    private String location;
+
     public String getVin() {
         return vin;
     }
@@ -102,6 +106,22 @@ public class CarSeller {
 
     public void setMileage(String mileage) {
         this.mileage = mileage;
+    }
+
+    public String getSeller() {
+        return seller;
+    }
+
+    public void setSeller(String seller) {
+        this.seller = seller;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     @Override

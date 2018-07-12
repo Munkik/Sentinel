@@ -6,9 +6,13 @@ public class Insurance {
 
     private String vin;
 
-    private String datePaid;
+    private String company;
 
-    private String payer;
+    private String policyNo;
+
+    private String coverPeriod;
+
+    private String claims;
 
     public String getVin() {
         return vin;
@@ -18,20 +22,36 @@ public class Insurance {
         this.vin = vin;
     }
 
-    public String getDatePaid() {
-        return datePaid;
+    public String getCompany() {
+        return company;
     }
 
-    public void setDatePaid(String datePaid) {
-        this.datePaid = datePaid;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    public String getPayer() {
-        return payer;
+    public String getPolicyNo() {
+        return policyNo;
     }
 
-    public void setPayer(String payer) {
-        this.payer = payer;
+    public void setPolicyNo(String policyNo) {
+        this.policyNo = policyNo;
+    }
+
+    public String getCoverPeriod() {
+        return coverPeriod;
+    }
+
+    public void setCoverPeriod(String coverPeriod) {
+        this.coverPeriod = coverPeriod;
+    }
+
+    public String getClaims() {
+        return claims;
+    }
+
+    public void setClaims(String claims) {
+        this.claims = claims;
     }
 
     @Override
@@ -40,13 +60,15 @@ public class Insurance {
         if (o == null || getClass() != o.getClass()) return false;
         Insurance insurance = (Insurance) o;
         return Objects.equals(vin, insurance.vin) &&
-                Objects.equals(datePaid, insurance.datePaid) &&
-                Objects.equals(payer, insurance.payer);
+                Objects.equals(company, insurance.company) &&
+                Objects.equals(policyNo, insurance.policyNo) &&
+                Objects.equals(coverPeriod, insurance.coverPeriod) &&
+                Objects.equals(claims, insurance.claims);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(vin, datePaid, payer);
+        return Objects.hash(vin, company, policyNo, coverPeriod, claims);
     }
 }
