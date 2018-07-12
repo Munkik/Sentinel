@@ -45,7 +45,9 @@ public class Stub_Carseller {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                recordList.add(record);
             }
+
         }
         return recordList;
     }
