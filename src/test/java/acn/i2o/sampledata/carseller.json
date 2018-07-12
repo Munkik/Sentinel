@@ -1,0 +1,14 @@
+{
+	"vin": "000000001",
+    "make": "Toyota",
+    "model": "Fortuner",
+    "year": "2016",
+    "condition": "Used",
+    "color": "Metallic Grey",
+    "transmission": "Automatic",
+    "fuel": "Diesel",
+    "price": "1200000",
+    "mileage": "12000",
+    "seller": "Mark Penaflorida",
+    "location": "Sta. Rosa, Laguna"
+}
