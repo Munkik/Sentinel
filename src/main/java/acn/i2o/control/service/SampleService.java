@@ -1,4 +1,4 @@
-package acn.i2o.boundary.webservice;
+package acn.i2o.control.service;
 
 public class SampleService {
 

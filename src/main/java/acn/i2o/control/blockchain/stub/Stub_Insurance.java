@@ -1,52 +1,54 @@
-package acn.i2o.control.blockchain;
+package acn.i2o.control.blockchain.stub;
 
-import acn.i2o.control.valueobject.Record;
+import acn.i2o.entity.Insurance;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
+
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class HyperLedgerStub {
+@Service
+public class Stub_Insurance {
 
-    public String generate(Record record) {
+    public String put(Insurance insurance) {
 
-        String date = new SimpleDateFormat("MM/dd/yy").format(new Date());
-        record.setDateCreated(date);
-        File folder = new File("c:\\sentinel_temp");
+        File folder = new File("c:\\insurance_temp");
         if (!folder.exists()){
             folder.mkdir();
         }
         String pathname = pathname(folder);
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(new File(pathname), record);
+            mapper.writeValue(new File(pathname), insurance);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "Temporary data created at : " + pathname;
     }
 
-    public List<Record> getRecords()  {
+    public List<Insurance> get(String vin)  {
 
-        List<Record> recordList = new ArrayList<Record>();
-        File folder = new File("c:\\sentinel_temp");
+        List<Insurance> recordList = new ArrayList();
+        File folder = new File("c:\\insurance_temp");
         File[] listOfFiles = folder.listFiles();
 
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 ObjectMapper mapper = new ObjectMapper();
-                Record record = null;
+                Insurance record = null;
                 try {
                     record = mapper.readValue(
-                            new File("c:\\sentinel_temp\\" + file.getName()),
-                            Record.class);
+                            new File("c:\\insurance_temp\\" + file.getName()),
+                            Insurance.class);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                recordList.add(record);
+
+                if (record.getVin().equalsIgnoreCase(vin)) {
+                    recordList.add(record);
+                }
             }
         }
         return recordList;
@@ -54,9 +56,9 @@ public class HyperLedgerStub {
 
     private String pathname(File folder) {
         if (folder.listFiles() != null) {
-            return folder + "\\Sentinel" + folder.listFiles().length + ".json";
+            return folder + "\\insurance" + folder.listFiles().length + ".json";
         } else {
-            return folder + "Sentinel.json";
+            return folder + "insurance.json";
         }
     }
 }

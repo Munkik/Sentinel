@@ -1,6 +1,6 @@
-package acn.i2o.boundary.application;
+package acn.i2o.boundary.webservice;
 
-import acn.i2o.boundary.webservice.SampleService;
+import acn.i2o.control.service.SampleService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
