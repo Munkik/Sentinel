@@ -28,7 +28,7 @@ public class Stub_Carseller {
         return "Temporary data created at : " + pathname;
     }
 
-    public List<CarSeller> get(String vin)  {
+    public List<CarSeller> get()  {
 
         List<CarSeller> recordList = new ArrayList();
         File folder = new File("c:\\carseller_temp");
@@ -44,10 +44,6 @@ public class Stub_Carseller {
                             CarSeller.class);
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
-
-                if (record.getVin().equalsIgnoreCase(vin)) {
-                    recordList.add(record);
                 }
             }
         }

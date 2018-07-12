@@ -4,12 +4,16 @@ import acn.i2o.control.blockchain.stub.Stub_Carseller;
 import acn.i2o.control.blockchain.stub.Stub_Insurance;
 import acn.i2o.control.blockchain.stub.Stub_Police;
 import acn.i2o.control.blockchain.stub.Stub_Repairshop;
+import acn.i2o.control.valueobject.Awtomatic;
 import acn.i2o.entity.CarSeller;
 import acn.i2o.entity.Insurance;
 import acn.i2o.entity.Police;
 import acn.i2o.entity.Repairshop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class HyperLedgerService {
@@ -25,6 +29,24 @@ public class HyperLedgerService {
 
     @Autowired
     Stub_Repairshop stub_repairshop;
+
+    public List<Awtomatic> awtomaticRecords(){
+
+        List<Awtomatic> awtomaticList = new ArrayList<Awtomatic>();
+        List<CarSeller> carSellerList = stub_carseller.get();
+        for (CarSeller carSeller : carSellerList) {
+
+            Awtomatic awtomatic = new Awtomatic();
+            awtomatic.setCarSeller(carSeller);
+            String vin = carSeller.getVin();
+            awtomatic.setPoliceList(stub_police.get(vin));
+            awtomatic.setInsuranceList(stub_insurance.get(vin));
+            awtomatic.setRepairshopList(stub_repairshop.get(vin));
+            awtomaticList.add(awtomatic);
+        }
+
+        return awtomaticList;
+    }
 
     public String insertCarSellerRecord(CarSeller carSeller){
 
