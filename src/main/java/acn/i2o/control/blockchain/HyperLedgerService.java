@@ -79,4 +79,19 @@ public class HyperLedgerService {
         awtomatic.setRepairshopList(stub_repairshop.get(vin));
         return awtomatic;
     }
+
+    public List<Insurance> getInsurance(String vin){
+
+        return stub_insurance.get(vin);
+    }
+
+    public List<Police> getPolice(String vin){
+
+        return stub_police.get(vin);
+    }
+
+    public List<Repairshop> getRepair(String vin){
+
+        return stub_repairshop.get(vin);
+    }
 }

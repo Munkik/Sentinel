@@ -78,4 +78,36 @@ public class SentinelResource {
 
         return sentinelService.getAwtomaticRecord(vin);
     }
+
+    @CrossOrigin
+    @RequestMapping(
+            value = "/insurance/{vin}",
+            method = RequestMethod.GET,
+            produces = "application/json")
+    public List<Insurance> getInsuranceRecords(@PathVariable("vin") String vin) {
+
+        return sentinelService.getInsurance(vin);
+    }
+
+    @CrossOrigin
+    @RequestMapping(
+            value = "/police/{vin}",
+            method = RequestMethod.GET,
+            produces = "application/json")
+    public List<Police> getPoliceRecords(@PathVariable("vin") String vin) {
+
+        return sentinelService.getPolice(vin);
+    }
+
+
+    @CrossOrigin
+    @RequestMapping(
+            value = "/repairshop/{vin}",
+            method = RequestMethod.GET,
+            produces = "application/json")
+    public List<Repairshop> getRepairRecords(@PathVariable("vin") String vin) {
+
+        return sentinelService.getRepair(vin);
+    }
+
 }

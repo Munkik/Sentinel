@@ -23,6 +23,21 @@ public class SentinelService {
         return hyperLedgerService.awtomaticRecords();
     }
 
+    public List<Insurance> getInsurance(String vin){
+
+        return hyperLedgerService.getInsurance(vin);
+    }
+
+    public List<Police> getPolice(String vin){
+
+        return hyperLedgerService.getPolice(vin);
+    }
+
+    public List<Repairshop> getRepair(String vin){
+
+        return hyperLedgerService.getRepair(vin);
+    }
+
     public String put(CarSeller carSeller){
 
         return hyperLedgerService.insertCarSellerRecord(carSeller);
