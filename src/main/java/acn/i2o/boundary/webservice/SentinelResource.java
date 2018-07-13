@@ -68,4 +68,14 @@ public class SentinelResource {
 
         return sentinelService.getAllAwtomaticRecords();
     }
+
+    @CrossOrigin
+    @RequestMapping(
+            value = "/awtomatic/{vin}",
+            method = RequestMethod.GET,
+            produces = "application/json")
+    public List<Awtomatic> getRecords(@PathVariable("vin") String vin) {
+
+        return sentinelService.getAwtomaticRecord(vin);
+    }
 }

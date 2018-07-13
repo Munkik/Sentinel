@@ -52,6 +52,31 @@ public class Stub_Carseller {
         return recordList;
     }
 
+    public CarSeller get(String vin)  {
+
+        File folder = new File("c:\\carseller_temp");
+        File[] listOfFiles = folder.listFiles();
+
+        for (File file : listOfFiles) {
+            if (file.isFile()) {
+                ObjectMapper mapper = new ObjectMapper();
+                CarSeller record = null;
+                try {
+                    record = mapper.readValue(
+                            new File("c:\\carseller_temp\\" + file.getName()),
+                            CarSeller.class);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (record.getVin().equalsIgnoreCase(vin)){
+                    return record;
+                }
+            }
+
+        }
+        return null;
+    }
+
     private String pathname(File folder) {
         if (folder.listFiles() != null) {
             return folder + "\\carseller" + folder.listFiles().length + ".json";

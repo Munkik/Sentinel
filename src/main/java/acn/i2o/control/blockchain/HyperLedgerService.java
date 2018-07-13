@@ -67,4 +67,16 @@ public class HyperLedgerService {
 
         return stub_repairshop.put(repairshop);
     }
+
+    public Awtomatic getAwtomaticRecord(String vin) {
+
+        CarSeller carSeller = stub_carseller.get(vin);
+
+        Awtomatic awtomatic = new Awtomatic();
+        awtomatic.setCarSeller(carSeller);
+        awtomatic.setPoliceList(stub_police.get(vin));
+        awtomatic.setInsuranceList(stub_insurance.get(vin));
+        awtomatic.setRepairshopList(stub_repairshop.get(vin));
+        return awtomatic;
+    }
 }

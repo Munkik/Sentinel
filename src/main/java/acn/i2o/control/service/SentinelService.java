@@ -39,4 +39,9 @@ public class SentinelService {
 
         return hyperLedgerService.insertRepairshopRecord(repairshop);
     }
+
+    public List<Awtomatic> getAwtomaticRecord(String vin) {
+
+        return hyperLedgerService.getAwtomaticRecord(vin);
+    }
 }
